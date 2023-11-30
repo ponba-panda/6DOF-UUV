@@ -79,7 +79,7 @@ zeros(3) Tnb;
 
 M = MRB + MA;
 
-C(u,v,w,p,q,r) = vpa(vpa((CRB + CA),5),5)
+C(u,v,w,p,q,r) = vpa(vpa((CRB + CA),5),5);
 
 
 function y = skew(x)

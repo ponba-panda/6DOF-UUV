@@ -4,11 +4,11 @@ clear all;
 ModelRexRov
 Xinitial = [0 0 0 0 0 0 5 0 0 0 0 0].';
 options = odeset('RelTol',1e-3,'AbsTol',1e-2);
-Jm = matlabFunction(J);
-gm = matlabFunction(g);
-Dm = matlabFunction(D);
-Cm = matlabFunction(C);
-[t Xfinal] = ode15s(@(t,State) odefun(t,State,M,Cm,Jm,Dm,gm),[0 100],Xinitial,options) 
+Jm = matlabFunction(J,'File','Jmfile','Vars',{argnames(J).'});
+gm = matlabFunction(g,'File','gmfile','Vars',{argnames(g).'});
+Dm = matlabFunction(D,'File','Dmfile','Vars',{argnames(D).'});
+Cm = matlabFunction(C,'File','Cmfile','Vars',{argnames(C).'});
+%[t Xfinal] = ode15s(@(t,State) odefun(t,State,M,Cm,Jm,Dm,gm),[0 100],Xinitial,options) 
 
 %ODE Function
 function Xdot = odefun(t,State,M,Cm,Jm,Dm,gm)

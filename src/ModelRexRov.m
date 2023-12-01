@@ -14,7 +14,7 @@ W = 18274.75; %Weight
 S = @skew;
 xb = 0.0822;
 yb = -0.0077;
-zb = 0.3872;
+zb = -0.3872;
 rb = [xb yb zb].'; %Centre of Buoyancy
 MRB = [
 1862.87 0 0 0 0 0;
@@ -80,7 +80,6 @@ zeros(3) Tnb;
 M = MRB + MA;
 
 C(u,v,w,p,q,r) = vpa(vpa((CRB + CA),5),5);
-
 
 function y = skew(x)
     y = [0 -x(3) x(2); x(3) 0 -x(1); -x(2) x(1) 0];

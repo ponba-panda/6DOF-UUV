@@ -11,7 +11,7 @@ gm = matlabFunction(g,'File','gmfile','Vars',{argnames(g).'});
 Dm = matlabFunction(D,'File','Dmfile','Vars',{argnames(D).'});
 Cm = matlabFunction(C,'File','Cmfile','Vars',{argnames(C).'});
 Minv = inv(M);
-[t Xfinal] = ode15s(@(t,State) odefun(t,State,M,Cm,Jm,Dm,gm),[0 100],Xinitial) 
+%[t Xfinal] = ode15s(@(t,State) odefun(t,State,M,Cm,Jm,Dm,gm),[0 100],Xinitial) 
 
 %ODE Function
 function Xdot = odefun(t,State,M,Cm,Jm,Dm,gm)

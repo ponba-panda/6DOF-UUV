@@ -24,6 +24,7 @@ MRB = [
 0 0 0 1.44 794.20 2.60;
 0 0 0 33.41 2.60 691.23;
 ];
+m = 1862.87;
 MRB_dec = mat2cell(MRB,[3 3],[3 3] );
 
 MA = [
@@ -36,10 +37,15 @@ MA = [
 ];
 MA_dec = mat2cell(MA,[3 3],[3 3] );
 
+%CRB = [
+%MRB_dec{1,1}*S(v2) S(v2)*MRB_dec{1,2};
+%MRB_dec{2,1}*S(v2) -S(MRB_dec{2,2}*v2);
+%];
 CRB = [
-MRB_dec{1,1}*S(v2) S(v2)*MRB_dec{1,2};
-MRB_dec{2,1}*S(v2) -S(MRB_dec{2,2}*v2);
+zeros([3 3]) -m*S(v1);
+-m*S(v1) -S(MRB_dec{2,2}*v2);
 ];
+
 CRB = vpa(CRB,5);
 
 CA = [
